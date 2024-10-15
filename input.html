@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS tutorial</title>
+  </head>
+  <body>
+    <form>
+      <br />
+      <label for="name">NAME</label>
+      <input type="text" id="name" placeholder="name" /><br /><br />
+
+      <label for="email">EMAIL</label>
+      <input type="email" id="email" placeholder="email" /><br /><br />
+
+      <label for="birthday">BIRTHDAY</label>
+      <input type="date" id="birthday" name="birthday" /><br /><br />
+
+      <label for="password">PASSWORD</label>
+      <input type="password" id="password" placeholder="password" /><br /><br />
+
+      <label for="place">PLACE</label>
+      <select type="text" id="place" placeholder="place">
+        <option value="mnglr">MANGALORE</option>
+        <option value="bnlgr">BANGALORE</option></select
+      ><br /><br />
+
+      <input type="submit" onclick="Submit()" /><br /><br />
+    </form>
+    <hr />
+    <br />
+
+    <fieldset>
+      <legend>Choose checkbox:</legend>
+
+      <input type="checkbox" id="mnglr" name="mnglr" checked />
+      <label for="mnglr">mnlgr</label><br />
+
+      <input type="checkbox" id="bnglr" name="bnglr" />
+      <label for="bnglr">bnglr</label> <br />
+      <br />
+      <input type="submit" onclick="Check()" />
+    </fieldset>
+    <br />
+
+    <hr />
+
+    <br />
+
+    <label for="party"> DATE TIME</label>
+    <input
+      id="party"
+      type="datetime-local"
+      name="party-date"
+      value="2017-06-01T08:30"
+    /> <br> <br>    
+
+    <label for="pic">Choose a pic</label>
+    <input type="file" id="pic" name="pic" accept="image/png, image/jpeg" /> <br>
+    <input type="submit" onclick=display()>
+
+
+    <img id="preview" src="" alt="" style="display: none; width: 200px; height: 200px;"/>
+
+
+
+
+    <script>
+      function Submit() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        console.log(name + " " + email);
+        event.preventDefault();
+      }
+
+      function Check() {
+        var checkbox = document.getElementById("mnglr").checked;
+
+        console.log(checkbox);
+        event.preventDefault();
+      }
+
+      function display()
+      {
+
+        const fileInput = document.getElementById('pic');
+        const file = fileInput.files[0];
+ 
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const displayImage = document.getElementById('preview');
+                displayImage.src = e.target.result;
+                displayImage.style.display = 'block';
+            };
+        reader.readAsDataURL(file);
+        }
+    }
+
+    </script>
+  </body>
+</html>
