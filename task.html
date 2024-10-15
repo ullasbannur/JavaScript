@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #print{
+            border: solid black;
+            width: 150px;
+            height: 50px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <form >
+        <label for="firstname"></label>
+        <input type="text" name="firstname" id="firstname" placeholder="fname">
+
+        <label for="lastname"></label>
+        <input type="text" name="lastname" id="lastname" placeholder="lname">
+        
+        <input type="submit" onclick=display()>
+
+    </form>
+
+    <br><div id="print"> </div>
+
+    <script>
+        function display(){
+            var fname=document.getElementById("firstname").value;
+            var lname=document.getElementById("lastname").value;
+
+            if(fname.length <6){
+                document.getElementById("firstname").style.borderColor="red";
+            }
+
+            if(fname.length <3){
+                document.getElementById("lastname").style.borderColor="yellow";
+            }
+
+            var divi= document.getElementById("print");
+            divi.innerHTML=fname + lname;
+
+
+
+            event.preventDefault();
+
+        }
+
+    </script>
+</body>
+</html>
